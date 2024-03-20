@@ -75,23 +75,22 @@ class Solution:
         ret = 0
 
         for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == 1: freshes.add((i, j))
-                elif grid[i][j] == 2: rottens.append((i, j))
+            for j, o in enumerate(grid[i]):
+                if o == 1: freshes.add((i, j))
+                elif o == 2: rottens.append((i, j))
         
         while freshes and rottens:
             for _ in range(len(rottens)):
                 k, l = rottens.popleft()
-
                 for o in [(-1, 0), (0, 1), (1, 0), (0, -1)]:
                     m, n = k + o[0], l + o[1]
-
                     if (m, n) in freshes:
                         freshes.remove((m, n))
                         rottens.append((m, n))
+            
             ret += 1
-        
-        return ret if not freshes else -1
+
+        return ret if len(freshes) == 0  else -1
     
 # @lc code=end
 
