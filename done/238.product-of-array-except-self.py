@@ -6,9 +6,9 @@
 # https://leetcode.com/problems/product-of-array-except-self/description/
 #
 # algorithms
-# Medium (65.30%)
-# Likes:    21977
-# Dislikes: 1342
+# Medium (65.31%)
+# Likes:    21973
+# Dislikes: 1339
 # Total Accepted:    2.5M
 # Total Submissions: 3.7M
 # Testcase Example:  '[1,2,3,4]'
@@ -47,22 +47,20 @@
 #
 
 # @lc code=start
+
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        left = [1] * len(nums)
+        ret = [1] * len(nums)
 
-        acc_product = 1
-        for i, n in enumerate(nums):
-            left[i] *= acc_product
-            acc_product *= n
+        for i in range(1, len(nums)):
+            ret[i] = ret[i - 1] * nums[i - 1]
 
-        acc_product = 1
-        for j in range(len(nums) - 1, -1, -1):
-            left[j] *= acc_product
-            acc_product *= nums[j]
-
-        return left
-
+        tmp = nums[-1]
+        for j in range(len(nums) - 2, -1, -1):
+            ret[j] *= tmp
+            tmp *= nums[j]
         
+        return ret
+    
 # @lc code=end
 

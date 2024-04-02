@@ -44,10 +44,11 @@
 
 # @lc code=start
 from collections import Counter
+import operator
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        return Counter(s) == Counter(t)
-    
+        return operator.eq(Counter(s), Counter(t))
+        
 # @lc code=end
 

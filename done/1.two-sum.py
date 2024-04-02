@@ -1,5 +1,5 @@
 #
-# @lc app=leetcode id=1 lang=python3
+# @lc app=leetcode id=1 lang=python
 #
 # [1] Two Sum
 #
@@ -60,15 +60,16 @@
 #
 
 # @lc code=start
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        nums_dict = { n: i for i, n in enumerate(nums)}
+class Solution(object):
+    def twoSum(self, nums, target):
+        target_dict = {}
 
         for i, n in enumerate(nums):
-            remain = target - n
-            if remain in nums_dict and i != nums_dict[remain]:
-                return [i, nums_dict[remain]]
+            target_dict[target - n] = i
 
-            
+        for j, n in enumerate(nums):
+            if n in target_dict and target_dict[n] != j:
+                return [j, target_dict[n]]
+        
 # @lc code=end
 

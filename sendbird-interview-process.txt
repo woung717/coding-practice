@@ -1,0 +1,5 @@
+1. manager interview - 기반 (업무, 기술문답) 
+2. 기술 인터뷰 x 2 (코딩/시스템 디자인) // coderpad
+3. 밸류/behavioral - 7 core value
+
+서버팀: (applications - backend)

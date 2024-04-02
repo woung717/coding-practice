@@ -40,7 +40,15 @@
 # @lc code=start
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        return len(nums) != len(set(nums))
+        numbers_set = set()
+
+        for n in nums:
+            if n in numbers_set:
+                return True
+            else:
+                numbers_set.add(n)
+
+        return False
         
 # @lc code=end
 
