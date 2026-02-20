@@ -11,7 +11,7 @@ class Solution:
 
         for i, n in enumerate(nums):
             indices[n] = i
-
+            
         for i, n in enumerate(nums):
             remain = target - n
 
